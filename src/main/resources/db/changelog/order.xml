@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet id="3" author="vardhan">
+        <createTable tableName="orders">
+            <column name="order_id" type="int" autoIncrement="true" incrementBy="1" startWith="401">
+                <constraints primaryKey="true"></constraints>
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            
+            <column name="total_amount" type="double">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="order_status" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="ordered_at" type="datetime" >
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="user_id" constraintName="fk_order_user_id" referencedTableName="users"
+                                 referencedColumnNames="user_id" onDelete="CASCADE"/>
+
+    </changeSet>
+
+    <changeSet id="12" author="vardhan">
+        <insert tableName="orders">
+
+            <column name="user_id" value="2"/>
+            <column name="total_amount" value="5000.00"/>
+            <column name="order_status" value="packed"/>
+            <column name="ordered_at" value="2023-08-31 08:30:00"/>
+        </insert>
+        <insert tableName="orders">
+            <column name="user_id" value="3"/>
+            <column name="total_amount" value="30000.00"/>
+            <column name="order_status" value="packed"/>
+            <column name="ordered_at" value="2023-08-30 05:30:00"/>
+        </insert>
+
+        <insert tableName="orders">
+
+            <column name="user_id" value="3"/>
+            <column name="total_amount" value="20000"/>
+            <column name="order_status" value="packed"/>
+            <column name="ordered_at" value="2023-08-30 04:00:00"/>
+        </insert>
+
+    </changeSet>
+
+
+</databaseChangeLog>

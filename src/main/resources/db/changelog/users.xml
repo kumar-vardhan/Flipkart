@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet id="1" author="vardhan">
+    <createTable tableName="users">
+        <column name="user_id" type="int" autoIncrement="true" incrementBy="1" startWith="1">
+            <constraints primaryKey="true"></constraints>
+        </column>
+        <column name="username" type="varchar(60)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="user_password" type="varchar(30)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="address" type="varchar(30)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="phone_no" type="varchar(10)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="wallet" type="double" defaultValue="250000.00">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+    </changeSet>
+    
+    <changeSet id="10" author="vardhan">
+        <insert tableName="users">
+            <column name="username" value="vardhan"/>
+            <column name="user_password" value="vardhan@1"/>
+            <column name="address" value="3-19, sainagar, gopalaptnam"/>
+            <column name="phone_no" value="7036320455"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="sravan"/>
+            <column name="user_password" value="sravan@1"/>
+            <column name="address" value="2-1/45, b.c road, gajuwaka"/>
+            <column name="phone_no" value="9999988888"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="girish"/>
+            <column name="user_password" value="girish@1"/>
+            <column name="address" value="5-23, sector4, MVP"/>
+            <column name="phone_no" value="8888866666"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

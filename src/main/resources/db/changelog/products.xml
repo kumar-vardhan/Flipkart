@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+
+    <changeSet id="2" author="vardhan">
+
+
+    <createTable tableName="products">
+        <column name="product_id" type="int" autoIncrement="true" incrementBy="1" startWith="101">
+            <constraints primaryKey="true"></constraints>
+        </column>
+        <column name="product_name" type="varchar(60)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="price" type="double">
+            <constraints nullable="false"/>
+        </column>
+        <column name="category" type="varchar(20)">
+
+        </column>
+
+    </createTable>
+    </changeSet>
+
+    <changeSet id="11" author="vardhan">
+        <insert tableName="products">
+            <column name="product_name" value="Whirphool fridge"/>
+            <column name="price" value="20000.00"/>
+            <column name="category" value="refrigrators"/>
+        </insert>
+        <insert tableName="products">
+            <column name="product_name" value="smart watch"/>
+            <column name="price" value="5000.00"/>
+            <column name="category" value="electronics"/>
+        </insert>
+        <insert tableName="products">
+            <column name="product_name" value="oppo A21"/>
+            <column name="price" value="10000.00"/>
+            <column name="category" value="mobiles"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet id="8" author="vardhan">
+    <createTable tableName="ordered_items">
+
+        <column name="serialno" type="int" autoIncrement="true" incrementBy="1" startWith="10001">
+            <constraints primaryKey="true"></constraints>
+        </column>
+        <column name="order_id" type="int" >
+            <constraints  nullable="false"/>
+        </column>
+        <column name="product_id" type="int">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="quantity" type="int">
+            <constraints nullable="false"/>
+        </column>
+        <column name="price" type="double" >
+            <constraints nullable="false"/>
+        </column>
+<!--        <column name="order_status" type="varchar(20)">-->
+<!--            <constraints nullable="false"/>-->
+<!--        </column>-->
+
+    </createTable>
+        <addForeignKeyConstraint baseTableName="ordered_items" baseColumnNames="order_id" constraintName="fk_order_ordered_items" referencedTableName="orders"
+                                 referencedColumnNames="order_id" onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="ordered_items" baseColumnNames="product_id" constraintName="fk_product_ordered" referencedTableName="products"
+                                 referencedColumnNames="product_id" onDelete="CASCADE" />
+
+    </changeSet>
+
+    <changeSet id="13" author="vardhan">
+        <insert tableName="ordered_items">
+
+            <column name="order_id" value="401"/>
+            <column name="product_id" value="102"/>
+            <column name="quantity" value="1"/>
+            <column name="price" value="5000.00"/>
+
+        </insert>
+        <insert tableName="ordered_items">
+
+            <column name="order_id" value="402"/>
+            <column name="product_id" value="101"/>
+            <column name="quantity" value="1"/>
+            <column name="price" value="20000.00"/>
+
+        </insert><insert tableName="ordered_items">
+
+        <column name="order_id" value="402"/>
+        <column name="product_id" value="102"/>
+        <column name="quantity" value="2"/>
+        <column name="price" value="10000.00"/>
+    </insert>
+
+<!--        <insert tableName="ordered_items">-->
+
+<!--            <column name="order_id" value="402"/>-->
+<!--            <column name="product_id" value="101"/>-->
+<!--            <column name="quantity" value="1"/>-->
+<!--            <column name="price" value="20000.00"/>-->
+<!--        </insert>-->
+        <insert tableName="ordered_items">
+
+            <column name="order_id" value="403"/>
+            <column name="product_id" value="103"/>
+            <column name="quantity" value="2"/>
+            <column name="price" value="20000.00"/>
+
+        </insert>
+
+
+    </changeSet>
+
+
+
+
+</databaseChangeLog>
