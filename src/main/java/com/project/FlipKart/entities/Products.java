@@ -16,6 +16,10 @@ public class Products {
     private double price;
     private String category;
 
+    @OneToMany(mappedBy = "products")
+    @JsonIgnore
+    private List<OrderedItems> orderedItems;
+
     public List<OrderedItems> getOrderedItems() {
         return orderedItems;
     }
@@ -23,10 +27,6 @@ public class Products {
     public void setOrderedItems(List<OrderedItems> orderedItems) {
         this.orderedItems = orderedItems;
     }
-
-    @OneToMany(mappedBy = "products")
-    @JsonIgnore
-    private List<OrderedItems> orderedItems;
 
     public int getProductId() {
         return productId;

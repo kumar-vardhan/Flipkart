@@ -18,7 +18,7 @@
             </column>
 
 
-            <column name="bill_amount" type="double" >
+            <column name="bill_amount" type="decimal(18,2)" >
                 <constraints nullable="false"/>
             </column>
 

@@ -21,12 +21,10 @@
         <column name="quantity" type="int">
             <constraints nullable="false"/>
         </column>
-        <column name="price" type="double" >
+        <column name="price" type="decimal(18,2)" >
             <constraints nullable="false"/>
         </column>
-<!--        <column name="order_status" type="varchar(20)">-->
-<!--            <constraints nullable="false"/>-->
-<!--        </column>-->
+
 
     </createTable>
         <addForeignKeyConstraint baseTableName="ordered_items" baseColumnNames="order_id" constraintName="fk_order_ordered_items" referencedTableName="orders"
@@ -61,13 +59,6 @@
         <column name="price" value="10000.00"/>
     </insert>
 
-<!--        <insert tableName="ordered_items">-->
-
-<!--            <column name="order_id" value="402"/>-->
-<!--            <column name="product_id" value="101"/>-->
-<!--            <column name="quantity" value="1"/>-->
-<!--            <column name="price" value="20000.00"/>-->
-<!--        </insert>-->
         <insert tableName="ordered_items">
 
             <column name="order_id" value="403"/>

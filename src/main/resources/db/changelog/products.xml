@@ -16,7 +16,7 @@
         <column name="product_name" type="varchar(60)">
             <constraints nullable="false"/>
         </column>
-        <column name="price" type="double">
+        <column name="price" type="decimal(18,2)">
             <constraints nullable="false"/>
         </column>
         <column name="category" type="varchar(20)">
@@ -41,6 +41,18 @@
             <column name="product_name" value="oppo A21"/>
             <column name="price" value="10000.00"/>
             <column name="category" value="mobiles"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="product_name" value="laptop"/>
+            <column name="price" value="35000.00"/>
+            <column name="category" value="electroics"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="product_name" value="Allen Solly Chinos"/>
+            <column name="price" value="35000.00"/>
+            <column name="category" value="cloths"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

@@ -3,6 +3,7 @@ package com.project.FlipKart.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -15,31 +16,9 @@ public class Orders {
     private int userId;
     private double totalAmount;
 
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
-
-    public List<OrderedItems> getOrderedItems() {
-        return orderedItems;
-    }
-
-    public void setOrderedItems(List<OrderedItems> orderedItems) {
-        this.orderedItems = orderedItems;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
     private  String orderStatus;
+
+    private LocalDateTime orderedAt;
 
     @ManyToOne
     @JoinColumn (name="userId", referencedColumnName = "userId", insertable = false, updatable = false)
@@ -84,5 +63,37 @@ public class Orders {
 
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public LocalDateTime getOrderedAt() {
+        return orderedAt;
+    }
+
+    public void setOrderedAt(LocalDateTime orderedAt) {
+        this.orderedAt = orderedAt;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
+    public List<OrderedItems> getOrderedItems() {
+        return orderedItems;
+    }
+
+    public void setOrderedItems(List<OrderedItems> orderedItems) {
+        this.orderedItems = orderedItems;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }

@@ -22,7 +22,7 @@
         <column name="phone_no" type="varchar(10)">
             <constraints nullable="false"/>
         </column>
-        <column name="wallet" type="double" defaultValue="250000.00">
+        <column name="wallet" type="decimal(18,2)" defaultValue="250000.00">
             <constraints nullable="false"/>
         </column>
     </createTable>
