@@ -17,13 +17,14 @@ public class PaymentController {
     @Autowired
     private PaymentServiceImpl paymentServiceImpl;
 
-    @GetMapping("/allpayments")
-    public List<Payment> allPayments(){
-        return  paymentServiceImpl.allPayments();
+    @GetMapping("/payments")
+    public List<Payment> getPayments(){
+        return  paymentServiceImpl.getPayments();
     }
 
-    @PostMapping("/makeAnPayment")
-    public Payment makeAnPayment(@RequestParam("orderId")int orderId,@RequestParam("userId")int userId) throws UserDefinedException {
+    @PostMapping("/pay")
+    public Payment payIt(@RequestParam("order-id")int orderId, @RequestParam("user-id")int userId) throws UserDefinedException {
         return  paymentServiceImpl.makePayment(orderId,userId);
     }
+
 }

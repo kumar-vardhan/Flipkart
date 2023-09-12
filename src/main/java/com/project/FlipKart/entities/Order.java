@@ -1,6 +1,7 @@
 package com.project.FlipKart.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.FlipKart.enums.OrderStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="orders")
-public class Orders {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,20 +17,21 @@ public class Orders {
     private int userId;
     private double totalAmount;
 
-    private  String orderStatus;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
 
-    private LocalDateTime orderedAt;
+    private LocalDateTime createdAt;
 
     @ManyToOne
     @JoinColumn (name="userId", referencedColumnName = "userId", insertable = false, updatable = false)
     @JsonIgnore
-    private Users users;
+    private User user;
 
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "order")
     @JsonIgnore
-    private List<OrderedItems> orderedItems;
+    private List<OrderedItem> orderedItems;
 
-    @OneToOne(mappedBy = "orders")
+    @OneToOne(mappedBy = "order")
     @JsonIgnore
     private Payment payment;
 
@@ -57,35 +59,35 @@ public class Orders {
         this.totalAmount = totalAmount;
     }
 
-    public String getOrderStatus() {
+    public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(String orderStatus) {
+    public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
 
-    public LocalDateTime getOrderedAt() {
-        return orderedAt;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setOrderedAt(LocalDateTime orderedAt) {
-        this.orderedAt = orderedAt;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Users getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public List<OrderedItems> getOrderedItems() {
+    public List<OrderedItem> getOrderedItems() {
         return orderedItems;
     }
 
-    public void setOrderedItems(List<OrderedItems> orderedItems) {
+    public void setOrderedItems(List<OrderedItem> orderedItems) {
         this.orderedItems = orderedItems;
     }
 

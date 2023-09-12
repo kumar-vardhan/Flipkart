@@ -1,13 +1,13 @@
 package com.project.FlipKart.repo;
 
-import com.project.FlipKart.entities.Products;
+import com.project.FlipKart.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ProductsRepo extends JpaRepository<Products,Integer> {
+public interface ProductsRepo extends JpaRepository<Product,Integer> {
 
-    Products findByProductName(String productName);
 
-    List<Products> findByCategory(String category);
+
+    List<Product> findByCategory(String category);
 }

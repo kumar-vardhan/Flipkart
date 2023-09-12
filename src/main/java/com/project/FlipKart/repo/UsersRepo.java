@@ -1,10 +1,9 @@
 package com.project.FlipKart.repo;
 
-import com.project.FlipKart.entities.Users;
+import com.project.FlipKart.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UsersRepo extends JpaRepository<Users, Integer> {
+public interface UsersRepo extends JpaRepository<User, Integer> {
 
 
-    Users findByusername(String username);
 }

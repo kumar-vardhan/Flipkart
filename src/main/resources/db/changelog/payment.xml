@@ -7,43 +7,47 @@
 
 
     <changeSet id="16" author="vardhan">
-        <createTable tableName="payment">
+        <createTable tableName="payments">
             <column name="payment_id" type="int" autoIncrement="true" incrementBy="1" startWith="8001">
-                <constraints nullable="false"/>
+                <constraints uniqueConstraintName="true"/>
             </column>
-
 
             <column name="order_id" type="int" >
                 <constraints  nullable="false"/>
             </column>
 
-
             <column name="bill_amount" type="decimal(18,2)" >
                 <constraints nullable="false"/>
             </column>
 
+            <column name="created_at" type="datetime" >
+                <constraints nullable="false"/>
+            </column>
 
         </createTable>
-        <addForeignKeyConstraint baseTableName="payment" baseColumnNames="order_id" constraintName="fk_payment_order" referencedTableName="orders"
+        <addForeignKeyConstraint baseTableName="payments" baseColumnNames="order_id" constraintName="fk_payment_order" referencedTableName="orders"
                                  referencedColumnNames="order_id" onDelete="CASCADE" />
 
 
     </changeSet>
 
     <changeSet id="17" author="vardhan">
-        <insert tableName="payment">
+        <insert tableName="payments">
             <column name="order_id" value="401"/>
             <column name="bill_amount" value="5000.00"/>
+            <column name="created_at" value="2023-08-07 08:30:00"/>
         </insert>
 
-        <insert tableName="payment">
+        <insert tableName="payments">
             <column name="order_id" value="402"/>
             <column name="bill_amount" value="30000.00"/>
+            <column name="created_at" value="2023-08-12 08:30:00"/>
         </insert>
 
-        <insert tableName="payment">
-            <column name="order_id" value="401"/>
+        <insert tableName="payments">
+            <column name="order_id" value="403"/>
             <column name="bill_amount" value="20000.00"/>
+            <column name="created_at" value="2023-08-04 08:30:00"/>
         </insert>
     </changeSet>
 
