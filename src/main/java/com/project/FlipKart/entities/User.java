@@ -3,11 +3,12 @@ package com.project.FlipKart.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name="users")
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,17 +18,35 @@ public class Users {
     private String address;
     private String phoneNo;
     private double wallet;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "users")
-    @JsonIgnore
-    private List<Orders> orders;
+//    @OneToMany(mappedBy = "user")
+//    @JsonIgnore
+//    private List<Order> orders;
 
-    public List<Orders> getOrders() {
-        return orders;
+//    public List<Order> getOrders() {
+//        return orders;
+//    }
+//
+//    public void setOrders(List<Order> orders) {
+//        this.orders = orders;
+//    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setOrders(List<Orders> orders) {
-        this.orders = orders;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public int getUserId() {

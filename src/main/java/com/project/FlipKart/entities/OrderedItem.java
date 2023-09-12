@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="ordered_items")
-public class OrderedItems {
+public class OrderedItem {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -16,6 +16,19 @@ public class OrderedItems {
     private int quantity;
     private double price;
 
+
+
+
+    @ManyToOne
+    @JoinColumn(name="orderId",referencedColumnName = "orderId",insertable = false,updatable = false)
+    @JsonIgnore
+    private Order order;
+
+    @ManyToOne
+    @JoinColumn(name="productId",referencedColumnName = "productId",insertable = false,updatable = false)
+    @JsonIgnore
+    private Product product;
+
     public int getSerialno() {
         return serialno;
     }
@@ -24,37 +37,6 @@ public class OrderedItems {
         this.serialno = serialno;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public Orders getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Orders orders) {
-        this.orders = orders;
-    }
-
-    public Products getProducts() {
-        return products;
-    }
-
-    public void setProducts(Products products) {
-        this.products = products;
-    }
-
-
-
-    @ManyToOne
-    @JoinColumn(name="orderId",referencedColumnName = "orderId",insertable = false,updatable = false)
-    @JsonIgnore
-    private Orders orders;
-
-    @ManyToOne
-    @JoinColumn(name="productId",referencedColumnName = "productId",insertable = false,updatable = false)
-    @JsonIgnore
-    private Products products;
     public int getOrderId() {
         return orderId;
     }
@@ -67,7 +49,7 @@ public class OrderedItems {
         return productId;
     }
 
-    public void setProductsId(int productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 
@@ -85,5 +67,21 @@ public class OrderedItems {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

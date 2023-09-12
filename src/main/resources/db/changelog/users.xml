@@ -25,6 +25,12 @@
         <column name="wallet" type="decimal(18,2)" defaultValue="250000.00">
             <constraints nullable="false"/>
         </column>
+        <column name="created_at" type="datetime">
+            <constraints nullable="false"/>
+        </column>
+        <column name="updated_at" type="datetime">
+            <constraints nullable="false"/>
+        </column>
     </createTable>
     </changeSet>
     
@@ -34,6 +40,9 @@
             <column name="user_password" value="vardhan@1"/>
             <column name="address" value="3-19, sainagar, gopalaptnam"/>
             <column name="phone_no" value="7036320455"/>
+            <column name="created_at" value="2023-08-31 08:30:00"/>
+            <column name="updated_at" value="2023-08-31 08:30:00"/>
+
         </insert>
 
         <insert tableName="users">
@@ -41,6 +50,8 @@
             <column name="user_password" value="sravan@1"/>
             <column name="address" value="2-1/45, b.c road, gajuwaka"/>
             <column name="phone_no" value="9999988888"/>
+            <column name="created_at" value="2023-09-03 04:30:00"/>
+            <column name="updated_at" value="2023-09-03 04:30:00"/>
         </insert>
 
         <insert tableName="users">
@@ -48,6 +59,8 @@
             <column name="user_password" value="girish@1"/>
             <column name="address" value="5-23, sector4, MVP"/>
             <column name="phone_no" value="8888866666"/>
+            <column name="created_at" value="2023-09-05 08:30:00"/>
+            <column name="updated_at" value="2023-09-05 08:30:00"/>
         </insert>
     </changeSet>
 
