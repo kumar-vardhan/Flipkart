@@ -20,7 +20,7 @@ public class OrderController {
         return orderServiceImpl.getOrders();
     }
 
-    @GetMapping("/orders/{userId}")
+    @GetMapping("/orders/{user-id}")
     public  List<Order> getOrders(@PathVariable("user-id")int userId) throws UserDefinedException {
         return orderServiceImpl.getOrders(userId);
     }
@@ -30,7 +30,7 @@ public class OrderController {
         orderServiceImpl.placeOrder(orderedItems, userId);
         return "Order placed successfully";
     }
-    @GetMapping("/orders/{order-id}/userid/{user-id}")
+    @DeleteMapping("/orders/{order-id}/userid/{user-id}")
     public String cancelOrder(@PathVariable("order-id")int orderId,@PathVariable("user-id")int userId)throws UserDefinedException{
         return orderServiceImpl.cancelOrder(orderId,userId);
     }
