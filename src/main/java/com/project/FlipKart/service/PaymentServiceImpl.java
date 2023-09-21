@@ -47,6 +47,9 @@ public class PaymentServiceImpl implements PaymentServices {
         if(order.getOrderStatus().equals(OrderStatus.PACKED)){
             throw new UserDefinedException("Payment Already Done");
         }
+        if(order.getOrderStatus().equals(OrderStatus.CANCELLED)){
+            throw new UserDefinedException("trying to make payment for cancelled order");
+        }
         User user1 = users.get();
         if(order.getUserId()!=userId){
             throw new UserDefinedException("Invalid users making payment");

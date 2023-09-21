@@ -1,6 +1,6 @@
 package com.project.FlipKart.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -21,17 +21,18 @@ public class User {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-//    @OneToMany(mappedBy = "user")
-//    @JsonIgnore
-//    private List<Order> orders;
+//    @Enumerated(EnumType.STRING)
+//    private Roles roles;
 
-//    public List<Order> getOrders() {
-//        return orders;
-//    }
-//
-//    public void setOrders(List<Order> orders) {
-//        this.orders = orders;
-//    }
+    private String roles;
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;

@@ -91,6 +91,9 @@ public class OrderServiceImpl implements OrderService {
             throw new UserDefinedException("Invalid OrderId");
         }
         Order order1 = orders.get();
+        if(order1.getOrderStatus().equals(OrderStatus.CANCELLED)){
+            throw new UserDefinedException("Order already cancelled");
+        }
         if(userId!= order1.getUserId()){
             throw new UserDefinedException("Invalid user trying to cancel the order");
         }

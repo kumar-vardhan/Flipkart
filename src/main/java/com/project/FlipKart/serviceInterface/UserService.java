@@ -15,4 +15,6 @@ public interface UserService {
     public User updateAddress(int user_id, String address) throws UserDefinedException;
 
     public Double getWallet(int userId) throws UserDefinedException;
+
+    User updatePassword(int userId,String password);
 }
